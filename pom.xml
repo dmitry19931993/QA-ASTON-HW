@@ -9,4 +9,8 @@
     <dependencies>
 
     </dependencies>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven..compiler.targer>17</maven..compiler.targer>
+    </properties>
 </project>
