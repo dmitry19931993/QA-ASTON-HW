@@ -1,5 +1,3 @@
-package lesson_2;
-
 public class Park {
 
     public class Attraction {

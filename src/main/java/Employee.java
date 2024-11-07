@@ -1,5 +1,3 @@
-package lesson_2;
-
 public class Employee {
     private String full_name;
     private String position;
