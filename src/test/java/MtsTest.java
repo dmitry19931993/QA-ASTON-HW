@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static steps.DriverInstance.*;
 
@@ -85,5 +86,50 @@ public class MtsTest {
         assertIterableEquals(expectedPlaceholders, placeholders);
     }
 
+    @Test
+    @DisplayName("Checking the correctness of the amount display")
+    public void testIframeSumText() {
+        steps.sendInputs();
+        String iframeSumText = steps.getIframeSumText();
+        assertEquals("20.00 BYN", iframeSumText);
+    }
+
+    @Test
+    @DisplayName("Checking that the amount on the button is displayed correctly")
+    public void testIframeSumButtonText() {
+        steps.sendInputs();
+        String iframeSumButtonText = steps.getIframeSumButtonText();
+        assertEquals(" Оплатить  20.00 BYN <!---->", iframeSumButtonText);
+    }
+
+    @Test
+    @DisplayName("Сhecking whether the phone number is displayed correctly")
+    public void testIframePhoneNumberText() {
+        steps.sendInputs();
+        String iframePhoneText = steps.getIframePhoneText();
+        assertEquals("Оплата: Услуги связи\nНомер:375336319034", iframePhoneText);
+    }
+
+    @Test
+    @DisplayName("Сhecking placeholders on the iframe \"communication services\" page")
+    public void testIframeCommunicationServicesPlaceholders() {
+        List<String> expectedPlaceholders = new ArrayList<>(Arrays.asList(
+                        "Номер карты", "Имя держателя (как на карте)", "Срок действия", "CVC"
+                ));
+        steps.sendInputs();
+        List<String> placeholders = steps.getIframeInputsPlaceholders();
+        assertIterableEquals(expectedPlaceholders, placeholders);
+    }
+
+    @Test
+    @DisplayName("Сhecking icons on the iframe \"communication services\" page")
+    public void testIframeCommunicationServicesIcons() {
+        List<String> expectedIcons = new ArrayList<>(Arrays.asList(
+                "visa-system", "mastercard-system", "belkart-system"
+        ));
+        steps.sendInputs();
+        List<String> icons = steps.getIframeIconsName();
+        assertIterableEquals(expectedIcons, icons);
+    }
 }
 
