@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.MtsMainPage;
@@ -15,22 +16,27 @@ public class MtsMainPageSteps {
         this.mtsMainPage = new MtsMainPage(driver);
     }
 
+    @Step("Выбор страницы «Услуги связи»")
     public void chooseCommunicationServiceButton() {
         mtsMainPage.choseElement(mtsMainPage.getCommunicationServiceButton());
     }
 
+    @Step("Выбор страницы «Домашний интернет»")
     public void chooseHomeInternetButton() {
         mtsMainPage.choseElement(mtsMainPage.getHomeInternetButton());
     }
 
+    @Step("Выбор страницы «Рассрочка»")
     public void chooseCreditButton() {
         mtsMainPage.choseElement(mtsMainPage.getCreditButton());
     }
 
+    @Step("Выбор страницы «Задолженность»")
     public void chooseDebtButton() {
         mtsMainPage.choseElement(mtsMainPage.getDebtButton());
     }
 
+    @Step("Получение списка плейсхолдеров")
     public List<String> getInputsPlaceholders() {
         List<String> placeholders = new ArrayList<>();
         for (WebElement placeholder: mtsMainPage.getInputs()) {
@@ -39,6 +45,7 @@ public class MtsMainPageSteps {
         return placeholders;
     }
 
+    @Step("Ввод Данных")
     public void sendInputs() {
         WebElement connectionPhone = mtsMainPage.getInputs().get(0);
         connectionPhone.sendKeys("336319034");
@@ -50,18 +57,22 @@ public class MtsMainPageSteps {
         mtsMainPage.switchIframeCommunicationServices();
     }
 
+    @Step("Получение данных отображения суммы")
     public String getIframeSumText(){
         return mtsMainPage.getIframeSumTextElement().getAttribute("innerHTML");
     }
 
+    @Step("Получение данных отображения суммы на кнопке оплаты")
     public String getIframeSumButtonText(){
         return mtsMainPage.getIframeSumButtonElement().getAttribute("innerHTML");
     }
 
+    @Step("Получение данных отображения номера телефона")
     public String getIframePhoneText() {
         return mtsMainPage.getIframePhoneText().getAttribute("innerHTML");
     }
 
+    @Step("Получение списка плейсхолдеров во фрейме")
     public List<String> getIframeInputsPlaceholders() {
         List<String> iframePlaceholders = new ArrayList<>();
         for (WebElement iframePlaceholder: mtsMainPage.getIframeInputs()) {
@@ -70,6 +81,7 @@ public class MtsMainPageSteps {
         return iframePlaceholders;
     }
 
+    @Step("Получение списка иконок платежных систем во фрейме")
     public List<String> getIframeIconsName() {
         List<String> iframeIcons = new ArrayList<>();
         for (WebElement iframeIcon: mtsMainPage.getIfraneIcons()) {

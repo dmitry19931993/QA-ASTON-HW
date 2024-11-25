@@ -41,7 +41,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Сhecking placeholders on the \"communication services\" page")
+    @DisplayName("Проверка плейсхолдеров на странице «Услуги связи»")
     public void checkTestCommunicationServicesPlaceholders() {
         List<String> expectedPlaceholders = new ArrayList<>(
                 Arrays.asList("Номер телефона", "Сумма", "E-mail для отправки чека")
@@ -52,7 +52,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Сhecking placeholders on the \"home internet\" page")
+    @DisplayName("Проверка плейсхолдеров на странице «Домашний интернет»")
     public void checkTestHomeInternetPlaceholders() {
         List<String> expectedPlaceholders = new ArrayList<>(
                 Arrays.asList("Номер абонента", "Сумма", "E-mail для отправки чека")
@@ -64,7 +64,7 @@ public class MtsTest {
 
 
     @Test
-    @DisplayName("Сhecking placeholders on the \"credit\" page")
+    @DisplayName("Проверка плейсхолдеров на странице «Рассрочка»")
     public void checkTestCreditPlaceholders() {
         List<String> expectedPlaceholders = new ArrayList<>(
                 Arrays.asList("Номер счета на 44", "Сумма", "E-mail для отправки чека")
@@ -76,7 +76,7 @@ public class MtsTest {
 
 
     @Test
-    @DisplayName("Сhecking placeholders on the \"debt\" page")
+    @DisplayName("Проверка плейсхолдеров на странице «Задолженность»")
     public void checkTestDebtPlaceholders() {
         List<String> expectedPlaceholders = new ArrayList<>(
                 Arrays.asList("Номер счета на 2073", "Сумма", "E-mail для отправки чека")
@@ -87,7 +87,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Checking the correctness of the amount display")
+    @DisplayName("Проверка корректности отображения суммы в появившемся окне")
     public void testIframeSumText() {
         steps.sendInputs();
         String iframeSumText = steps.getIframeSumText();
@@ -95,7 +95,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Checking that the amount on the button is displayed correctly")
+    @DisplayName("Проверка корректности отображения суммы на кнопке оплаты")
     public void testIframeSumButtonText() {
         steps.sendInputs();
         String iframeSumButtonText = steps.getIframeSumButtonText();
@@ -103,7 +103,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Сhecking whether the phone number is displayed correctly")
+    @DisplayName("Проверка корректности отображения номера телефона в появившемся окне")
     public void testIframePhoneNumberText() {
         steps.sendInputs();
         String iframePhoneText = steps.getIframePhoneText();
@@ -111,7 +111,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Сhecking placeholders on the iframe \"communication services\" page")
+    @DisplayName("Проверка плейсхолдеров во фрейме на странице «Услуги связи»")
     public void testIframeCommunicationServicesPlaceholders() {
         List<String> expectedPlaceholders = new ArrayList<>(Arrays.asList(
                         "Номер карты", "Имя держателя (как на карте)", "Срок действия", "CVC"
@@ -122,7 +122,7 @@ public class MtsTest {
     }
 
     @Test
-    @DisplayName("Сhecking icons on the iframe \"communication services\" page")
+    @DisplayName("Проверка наличия иконок платежных систем во фрейме на странице «Услуги связи»")
     public void testIframeCommunicationServicesIcons() {
         List<String> expectedIcons = new ArrayList<>(Arrays.asList(
                 "visa-system", "mastercard-system", "belkart-system"
